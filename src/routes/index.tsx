@@ -1,15 +1,15 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import LazyLoader from "../utils/routesContainer";
+import LazyLoader from "@utils/routesContainer";
 import { lazy } from "react";
 import PrivateRoute from "./privateRoute";
 import PublicRoute from "./publicRoute";
 
 const Login = LazyLoader(
-    lazy(() => import("../pages/Login"))
+    lazy(() => import("src/pages/Login"))
   );
 
   const Dashboard = LazyLoader(
-    lazy(() => import("../pages/Dashboard"))
+    lazy(() => import("src/pages/Dashboard"))
   );
 
 const RoutesManager = () => {
