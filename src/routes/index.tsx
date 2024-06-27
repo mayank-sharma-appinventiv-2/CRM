@@ -1,8 +1,9 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import LazyLoader from "@utils/routesContainer";
+import LazyLoader from '../utils/routesContainer'
 import { lazy } from "react";
 import PrivateRoute from "./privateRoute";
-import PublicRoute from "./publicRoute";
+import PublicRoute from "./PublicRoute";
+import ROUTES from "./routesPaths";
 
 const Login = LazyLoader(
     lazy(() => import("src/pages/Login"))
@@ -17,7 +18,7 @@ const RoutesManager = () => {
     return (<BrowserRouter>
         <Routes>
             <Route
-                path={"/"}
+                path={ROUTES.DASHBAORD}
                 element={
                     <PrivateRoute>
                       <Dashboard/>
@@ -25,7 +26,7 @@ const RoutesManager = () => {
                 }
             ></Route>
             <Route
-                path={"/login"}
+                path={ROUTES.LOGIN}
                 element={
                     <PublicRoute>
                     <Login/>
