@@ -30,7 +30,7 @@ const getDataApi = ({ path = "no-path-provided", data = {} }) => {
           params: getApiRequest(data),
         })
         .then((response) => {
-          resolve(response.data);
+          resolve(response);
         })
         .catch((error) => {
           reject(error);
@@ -52,7 +52,7 @@ const postDataApi = ({ path = "no-path-provided", data = {} }) => {
       $axios
         .post(getApiUrl({ path }), getApiRequest(data))
         .then((response) => {
-          resolve(response.data);
+          resolve(response);
         })
         .catch((error) => {
           reject(error);
@@ -74,7 +74,7 @@ const putDataApi = ({ path = "no-path-provided", data = {} }) => {
       $axios
         .put(getApiUrl({ path }), getApiRequest(data))
         .then((response) => {
-          resolve(response.data);
+          resolve(response);
         })
         .catch((error) => {
           reject(error);
@@ -96,7 +96,7 @@ const deleteDataApi = ({ path = "no-path-provided", data = {} }) => {
       $axios
         .delete(getApiUrl({ path }), getApiRequest(data))
         .then((response) => {
-          resolve(response.data);
+          resolve(response);
         })
         .catch((error) => {
           reject(error);
@@ -114,7 +114,7 @@ const deleteApi = ({ path = "no-path-provided", data = {} }) => {
       $axios
         .delete(getApiUrl({ path }), { data: getApiRequest(data) })
         .then((response) => {
-          resolve(response.data);
+          resolve(response);
         })
         .catch((error) => {
           reject(error);
