@@ -1,12 +1,8 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import RoutesManager from './routes';
 
 function App() {
   return (
-    <div>
-      APP
-    </div>
+      <RoutesManager />
   );
 }
 
