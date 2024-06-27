@@ -1,4 +1,8 @@
+import { Navigate } from "react-router-dom";
+
+const isAuthenticated = true
+
 const PublicRoute = ({ children }: any) => {
-  return  children;
+  return  isAuthenticated ? <Navigate to="/" /> : children;
 };
 export default PublicRoute;
