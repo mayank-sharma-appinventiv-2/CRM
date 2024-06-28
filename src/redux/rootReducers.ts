@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import userReducer from './reducers/reducer';
-import { DataState } from './reducers/reducer';
+import userReducer from './reducers/users';
+import { DataState } from './reducers/users';
 
 export type RootReducerType  = {users: DataState}
 

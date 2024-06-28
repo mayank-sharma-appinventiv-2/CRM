@@ -1,8 +1,8 @@
 import {
-  FETCH_DATA_REQUEST,
-  FETCH_DATA_SUCCESS,
-  FETCH_DATA_FAILURE,
-} from '../actions/actionTypes';
+  FETCH_USER_DATA_REQUEST,
+  FETCH_USER_DATA_SUCCESS,
+  FETCH_USER_DATA_FAILURE,
+} from '../actions/userActionTypes';
 
 export interface DataState {
   loading: boolean;
@@ -18,18 +18,18 @@ const initialState: DataState = {
 
 const reducer = (state = initialState, action: any): DataState => {
   switch (action.type) {
-    case FETCH_DATA_REQUEST:
+    case FETCH_USER_DATA_REQUEST:
       return {
         ...state,
         loading: true,
       };
-    case FETCH_DATA_SUCCESS:
+    case FETCH_USER_DATA_SUCCESS:
       return {
         ...state,
         loading: false,
         data: action.payload,
       };
-    case FETCH_DATA_FAILURE:
+    case FETCH_USER_DATA_FAILURE:
       return {
         ...state,
         loading: false,
