@@ -1,8 +1,11 @@
 import {combineReducers} from 'redux';
-import postReducer from './app/reducer';
+import userReducer from './reducers/reducer';
+import { DataState } from './reducers/reducer';
+
+export type RootReducerType  = {users: DataState}
 
 const rootReducer = combineReducers({
-  posts: postReducer,
+  users: userReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
