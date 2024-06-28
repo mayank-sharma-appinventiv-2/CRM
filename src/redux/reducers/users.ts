@@ -4,19 +4,19 @@ import {
   FETCH_USER_DATA_FAILURE,
 } from '../actions/userActionTypes';
 
-export interface DataState {
+export interface UserDataState {
   loading: boolean;
   data: any[];
   error: string | null;
 }
 
-const initialState: DataState = {
+const initialState: UserDataState = {
   loading: false,
   data: [],
   error: null,
 };
 
-const reducer = (state = initialState, action: any): DataState => {
+const reducer = (state = initialState, action: any): UserDataState => {
   switch (action.type) {
     case FETCH_USER_DATA_REQUEST:
       return {
