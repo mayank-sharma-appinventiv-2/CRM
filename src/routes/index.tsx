@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LazyLoader from '@utils/routesContainer'
 import { lazy } from "react";
 import PrivateRoute from "./privateRoute";
-import PublicRoute from "./PublicRoute";
+import PublicRoute from "./publicRoute";
 import ROUTES from "./routesPaths";
 
 const Login = LazyLoader(
