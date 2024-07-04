@@ -12,7 +12,7 @@ function getApiUrl(data: { path: string }) {
  * @function getApiRequest: Set API request
  * @param {Object} data API request data
  */
-function getApiRequest(data: {}) {
+function getApiRequest(data: object) {
   const req = Object.assign({}, data);
   return req;
 }
@@ -30,7 +30,7 @@ const getDataApi = ({ path = "no-path-provided", data = {} }) => {
           params: getApiRequest(data),
         })
         .then((response) => {
-          resolve(response);
+          resolve(response.data);
         })
         .catch((error) => {
           reject(error);

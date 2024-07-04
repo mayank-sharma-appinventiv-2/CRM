@@ -1,18 +1,29 @@
-import { call, put, takeEvery } from 'redux-saga/effects';
-import { FETCH_USER_DATA_REQUEST } from '../actions/userActionTypes';
-import { fetchUserDataSuccess, fetchUserDataFailure } from '../actions/userActions';
+import { call, put, takeEvery } from "redux-saga/effects";
+import {
+  fetchDataSuccess,
+  fetchDataFailure,
+  fetchDataRequest,
+} from "../slices/users";
+import { getDataApi } from "src/utils/api/api";
+
+export interface TestApiResponse {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+}
 
 function* fetchUserDataSaga() {
   try {
-    const response: Response = yield call(fetch, 'https://jsonplaceholder.typicode.com/todos'); // replace with your API endpoint
-    const data: any[] = yield response.json();
-    yield put(fetchUserDataSuccess(data));
-  } catch (error: any) {
-    yield put(fetchUserDataFailure(error.message));
+    const response: TestApiResponse[] = yield call(getDataApi, {
+      path: "todos",
+    });
+    yield put(fetchDataSuccess(response));
+  } catch (error) {
+    yield put(fetchDataFailure((error as Error).message));
   }
 }
 
 export default function* watchFetchData() {
-  yield takeEvery(FETCH_USER_DATA_REQUEST, fetchUserDataSaga);
+  yield takeEvery(fetchDataRequest.type, fetchUserDataSaga);
 }
-

@@ -1,13 +1,21 @@
-import { Suspense } from "react";
+import { Suspense, ComponentType } from "react";
 import PageLoader from "./pageLoader";
+import React from "react";
 
-// ==============================|| LOADABLE - LAZY LOADING ||============================== //
+// Define Props type
+type Props = {
+  title?: string;
+  // Define additional props here as needed
+};
 
-const LazyLoader = (Component: any) => (props: any) =>
-  (
+// Define LazyLoader component
+const LazyLoader = (Component: ComponentType<Props>) => {
+  const WrappedComp = (props: Props) => (
     <Suspense fallback={<PageLoader />}>
       <Component {...props} />
     </Suspense>
   );
+  return WrappedComp;
+};
 
 export default LazyLoader;
